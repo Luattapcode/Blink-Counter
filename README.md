@@ -93,12 +93,8 @@ numpy>=1.24.0
 ---
 
 ### 2. File `.gitignore`
-```text
-venv/
 __pycache__/
-*.pyc
-.DS_Store
-```
+
 
 ---
 
@@ -106,7 +102,7 @@ __pycache__/
 ```python
 import numpy as np
 
-def calculate_distance(pt1, pt2):
+def calc(pt1, pt2):
     """Tính khoảng cách Euclidean giữa 2 điểm 2D."""
     return np.linalg.norm(np.array(pt1) - np.array(pt2))
 
@@ -114,9 +110,9 @@ def eye_aspect_ratio(eye_landmarks):
     """
     Tính chỉ số EAR (Eye Aspect Ratio) dựa trên 6 điểm mốc của mắt.
     """
-    v1 = calculate_distance(eye_landmarks[1], eye_landmarks[5])
-    v2 = calculate_distance(eye_landmarks[2], eye_landmarks[4])
-    h = calculate_distance(eye_landmarks[0], eye_landmarks[3])
+    v1 = calc(eye_landmarks[1], eye_landmarks[5])
+    v2 = calc(eye_landmarks[2], eye_landmarks[4])
+    h = calc(eye_landmarks[0], eye_landmarks[3])
     
     ear = (v1 + v2) / (2.0 * h)
     return ear
@@ -211,4 +207,4 @@ cv2.destroyAllWindows()
 ## 📝 Tác giả
 * **Họ và tên:** Huỳnh Quốc Luật
 * **GitHub:** [Luattapcode](https://github.com/Luattapcode)
-* **Đề tài:** Bài tập lớn môn Thị giác máy tính / Trí tuệ nhân tạo
+* **Đề tài:** Bài tập lớn môn Nhập Môn Lập Trình
